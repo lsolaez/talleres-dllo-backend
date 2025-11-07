@@ -1,5 +1,3 @@
-// Controlador para taller2 - Operaciones con arreglos
-
 /**
  * Encuentra el valor máximo en una lista
  * @param {number[]} list - Array de números

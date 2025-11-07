@@ -1,5 +1,3 @@
-// Controlador para taller1 - Funciones matemáticas básicas
-
 /**
  * Convierte temperatura de Celsius a Fahrenheit
  * @param {number} celsius - Temperatura en Celsius

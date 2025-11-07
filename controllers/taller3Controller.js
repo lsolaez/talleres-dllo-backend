@@ -1,5 +1,3 @@
-// Controlador para taller3 - Manipulación de strings y algoritmos
-
 /**
  * Cuenta vocales o consonantes en un texto
  * @param {string} texto - Texto a analizar
