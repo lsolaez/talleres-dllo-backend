@@ -12,10 +12,10 @@ function ConvertidorTemp(celsius) {
  * @param {number} a - Coeficiente de x^2
  * @param {number} b - Coeficiente de x
  * @param {number} c - Término independiente
- * @param {number} d - 0 para solución positiva, 1 para solución negativa
+ * @param {number} solucion - 0 para solución positiva, 1 para solución negativa
  * @returns {number|string} Solución de la ecuación o mensaje de error
  */
-function Resolvedor(a, b, c, d) {
+function Resolvedor(a, b, c, solucion) {
     const discriminante = b**2 - 4 * a * c;
     
     if (discriminante < 0) {
@@ -25,9 +25,9 @@ function Resolvedor(a, b, c, d) {
     const solucion1 = (-b + Math.sqrt(discriminante)) / (2 * a);
     const solucion2 = (-b - Math.sqrt(discriminante)) / (2 * a);
     
-    if (d === 0) {
+    if (solucion === 0) {
         return solucion1;
-    } else if (d === 1) {
+    } else if (solucion === 1) {
         return solucion2;
     } else {
         return "Solo puede ingresar 0 para la solución positiva, 1 para la solución negativa";

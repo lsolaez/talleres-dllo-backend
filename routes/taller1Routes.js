@@ -78,7 +78,7 @@ router.post('/convertir-temp', (req, res) => {
  *               - a
  *               - b
  *               - c
- *               - d
+ *               - solucion
  *             properties:
  *               a:
  *                 type: number
@@ -92,7 +92,7 @@ router.post('/convertir-temp', (req, res) => {
  *                 type: number
  *                 description: Término independiente
  *                 example: 4
- *               d:
+ *               solucion:
  *                 type: number
  *                 description: 0 para solución positiva, 1 para solución negativa
  *                 example: 0
@@ -107,7 +107,7 @@ router.post('/convertir-temp', (req, res) => {
  *                 ecuacion:
  *                   type: string
  *                   example: "1x² + 5x + 4 = 0"
- *                 solucion:
+ *                 resultado:
  *                   type: number
  *                   example: -1
  *       400:
@@ -117,12 +117,12 @@ router.post('/convertir-temp', (req, res) => {
  */
 router.post('/resolver-ecuacion', (req, res) => {
     try {
-        const { a, b, c, d } = req.body;
+        const { a, b, c, solucion } = req.body;
         
         if (typeof a !== 'number' || typeof b !== 'number' || 
-            typeof c !== 'number' || typeof d !== 'number') {
+            typeof c !== 'number' || typeof solucion !== 'number') {
             return res.status(400).json({
-                error: 'Todos los parámetros (a, b, c, d) deben ser números'
+                error: 'Todos los parámetros (a, b, c, solucion) deben ser números'
             });
         }
         
@@ -132,7 +132,7 @@ router.post('/resolver-ecuacion', (req, res) => {
             });
         }
         
-        const resultado = Resolvedor(a, b, c, d);
+        const resultado = Resolvedor(a, b, c, solucion);
         res.json({ 
             ecuacion: `${a}x² + ${b}x + ${c} = 0`,
             solucion: resultado 
