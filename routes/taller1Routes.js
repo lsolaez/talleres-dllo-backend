@@ -144,18 +144,23 @@ router.post('/resolver-ecuacion', (req, res) => {
 
 /**
  * @swagger
- * /api/taller1/paridad/{num}:
- *   get:
+ * /api/taller1/paridad:
+ *   post:
  *     summary: Determina si un número es par o impar (método óptimo)
  *     tags: [Taller 1]
- *     parameters:
- *       - in: path
- *         name: num
- *         required: true
- *         schema:
- *           type: number
- *         description: Número a evaluar
- *         example: 582
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - num
+ *             properties:
+ *               num:
+ *                 type: number
+ *                 description: Número a evaluar
+ *                 example: 582
  *     responses:
  *       200:
  *         description: Verificación exitosa
@@ -175,13 +180,13 @@ router.post('/resolver-ecuacion', (req, res) => {
  *       500:
  *         description: Error del servidor
  */
-router.get('/paridad/:num', (req, res) => {
+router.post('/paridad', (req, res) => {
     try {
-        const num = parseFloat(req.params.num);
+        const { num } = req.body;
         
-        if (isNaN(num)) {
+        if (typeof num !== 'number') {
             return res.status(400).json({
-                error: 'El parámetro debe ser un número'
+                error: 'num debe ser un número'
             });
         }
         
@@ -197,18 +202,23 @@ router.get('/paridad/:num', (req, res) => {
 
 /**
  * @swagger
- * /api/taller1/paridad-peor/{num}:
- *   get:
+ * /api/taller1/paridad-peor:
+ *   post:
  *     summary: Determina si un número es par o impar (método subóptimo para números 0-10)
  *     tags: [Taller 1]
- *     parameters:
- *       - in: path
- *         name: num
- *         required: true
- *         schema:
- *           type: number
- *         description: Número a evaluar (0-10)
- *         example: 8
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - num
+ *             properties:
+ *               num:
+ *                 type: number
+ *                 description: Número a evaluar (0-10)
+ *                 example: 8
  *     responses:
  *       200:
  *         description: Verificación exitosa
@@ -228,13 +238,13 @@ router.get('/paridad/:num', (req, res) => {
  *       500:
  *         description: Error del servidor
  */
-router.get('/paridad-peor/:num', (req, res) => {
+router.post('/paridad-peor', (req, res) => {
     try {
-        const num = parseInt(req.params.num);
+        const { num } = req.body;
         
-        if (isNaN(num)) {
+        if (typeof num !== 'number') {
             return res.status(400).json({
-                error: 'El parámetro debe ser un número entero'
+                error: 'num debe ser un número'
             });
         }
         

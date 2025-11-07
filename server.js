@@ -18,7 +18,7 @@ app.use(express.json());
 // Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs, {
   customCss: '.swagger-ui .topbar { display: none }',
-  customSiteTitle: "Talleres API - Documentación"ñ
+  customSiteTitle: "Talleres API - Documentación"
 }));
 
 /**

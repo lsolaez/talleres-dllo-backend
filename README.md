@@ -95,9 +95,14 @@ Resuelve ecuaciones de la forma ax² + bx + c = 0.
 ### 3. Verificar Paridad (Óptimo)
 Determina si un número es par o impar usando operación módulo.
 
-**Endpoint:** `GET /api/taller1/paridad/:num`
+**Endpoint:** `POST /api/taller1/paridad`
 
-**Ejemplo:** `GET /api/taller1/paridad/582`
+**Body:**
+```json
+{
+  "num": 582
+}
+```
 
 **Respuesta:**
 ```json
@@ -110,9 +115,14 @@ Determina si un número es par o impar usando operación módulo.
 ### 4. Verificar Paridad (Subóptimo)
 Determina si un número es par o impar (implementación básica para números 0-10).
 
-**Endpoint:** `GET /api/taller1/paridad-peor/:num`
+**Endpoint:** `POST /api/taller1/paridad-peor`
 
-**Ejemplo:** `GET /api/taller1/paridad-peor/8`
+**Body:**
+```json
+{
+  "num": 8
+}
+```
 
 **Respuesta:**
 ```json
